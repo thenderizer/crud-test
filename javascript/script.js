@@ -61,7 +61,7 @@ function editListItem(index) {
     }
     document.getElementById('id01').style.display = 'block';
     document.getElementById("add-item-button").innerHTML="Save";
-    document.getElementById("add-item-button").onclick = function(){submitEdit(index)};
+    document.getElementById("form-sec").onsubmit = function(){submitEdit(index)};
 }
 
 
@@ -80,7 +80,7 @@ function submitEdit(index) {
 }
 
 
-//deletes the specifide
+//deletes the specified list item
 function deleteProduct(index) {
     peopleList.splice(index, 1);
     localStorage.setItem("theProducts", JSON.stringify(peopleList));
@@ -95,14 +95,14 @@ window.onclick = function (event) {
     }
 }
 
-//resets all the input fields and buttons
+//resets all the input fields and buttons to the original value
 function rstInput() {
     elms = document.getElementsByClassName("inp-control");
     for (var i = 0; i < elms.length; i++) {
         elms[i].value = "";
     }
     document.getElementById("id01").style.display = "none";
-    document.getElementById("add-item-button").onclick = function(){ addProduct()};
+    document.getElementById("form-sec").onsubmit = function(){ addProduct()};
     document.getElementById("add-item-button").innerHTML="Add Item";
 
 
@@ -124,7 +124,7 @@ function toCSV(){
     var data=new Blob([csvFile], {type:"text/csv"});//convert the csv string to a blob object of type csv
     var url=window.URL.createObjectURL(data);//setting a link for the blob/csv file
 
-    // making a selfclicking invisible a-tag to download the file by and setting the defualt name of the file
+    // making a selfclicking invisible a-tag to download the file and set the defualt name of the file
     var a = document.createElement("a");
     document.body.appendChild(a);
     a.style = "display: none";

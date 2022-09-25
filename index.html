@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -39,12 +39,9 @@
     </div>
     <div id="id01" class="modal">
 
-        <form class="modal-cont animate" method="post">
+        <form class="modal-cont animate" onsubmit="addProduct()" id="form-sec">
 
             <div class="cont">
-
-
-
 
 
                 <div class="form-group">
@@ -78,7 +75,7 @@
                 </div>
                 <div class="btn-section">
 
-                    <button onclick="addProduct()" class="my-3 btn btn-success" id="add-item-button">Add Item</button>
+                    <button type="submit" class="my-3 btn btn-success" id="add-item-button">Add Item</button>
 
                     <button onclick="rstInput()" class="my-3 btn btn-danger cancel-btn"> cancel </button>
                 </div>
