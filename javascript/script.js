@@ -41,8 +41,8 @@ function desplayProduct(desplayProductsList) {
         <td>${desplayProductsList[i].firstName}</td>
         <td>${desplayProductsList[i].lastName}</td>
         <td>${desplayProductsList[i].Email}</td>
-        <td>${desplayProductsList[i].location}</td>
         <td>${desplayProductsList[i].phone}</td>
+        <td>${desplayProductsList[i].location}</td>
         <td>${desplayProductsList[i].hobby}</td>
         <td><button onclick= "editListItem(${i})" class="btn btn-warning">Edit</button>
         <button onclick="deleteProduct(${i})" class="btn btn-danger">Del</button></td>
@@ -60,8 +60,8 @@ function editListItem(index) {
         elms[i].value = edLI[i];
     }
     document.getElementById('id01').style.display = 'block';
-    document.getElementById("add-item-button").innerHTML="Save";
-    document.getElementById("form-sec").onsubmit = function(){submitEdit(index)};
+    document.getElementById("add-item-button").innerHTML = "Save";
+    document.getElementById("form-sec").onsubmit = function () { submitEdit(index) };
 }
 
 
@@ -71,8 +71,8 @@ function submitEdit(index) {
     peopleList[index].firstName = pesFirstName.value;
     peopleList[index].lastName = pesLastName.value;
     peopleList[index].Email = pesEmail.value;
-    peopleList[index].location = pesLocation.value;
     peopleList[index].phone = pesPhone.value;
+    peopleList[index].location = pesLocation.value;
     peopleList[index].hobby = pesHobby.value;
     localStorage.setItem("theProducts", JSON.stringify(peopleList));
     desplayProduct(peopleList);
@@ -102,8 +102,8 @@ function rstInput() {
         elms[i].value = "";
     }
     document.getElementById("id01").style.display = "none";
-    document.getElementById("form-sec").onsubmit = function(){ addProduct()};
-    document.getElementById("add-item-button").innerHTML="Add Item";
+    document.getElementById("form-sec").onsubmit = function () { addProduct() };
+    document.getElementById("add-item-button").innerHTML = "Add Item";
 
 
 }
@@ -115,14 +115,14 @@ function formApear() {
 
 
 //converting the array to csv and downloading it
-function toCSV(){
-    let csvFile="First Name,Last Name,Email,Locatoin,Phone Number,Hobby\n"
+function toCSV() {
+    let csvFile = "First Name,Last Name,Email,Phone Number,Locatoin,Hobby\n"
     peopleList.forEach(person => {//savine the fields of an object into a variable
-        let row = person.firstName+","+person.lastName+","+person.Email+","+person.location+","+person.phone+","+person.hobby+"\n";
-        csvFile+=row;//adding the stored variables to the csv string with the file formating
+        let row = person.firstName + "," + person.lastName + "," + person.Email + ","+ person.phone + "," + person.location + ","  + person.hobby + "\n";
+        csvFile += row;//adding the stored variables to the csv string with the file formating
     });
-    var data=new Blob([csvFile], {type:"text/csv"});//convert the csv string to a blob object of type csv
-    var url=window.URL.createObjectURL(data);//setting a link for the blob/csv file
+    var data = new Blob([csvFile], { type: "text/csv" });//convert the csv string to a blob object of type csv
+    var url = window.URL.createObjectURL(data);//setting a link for the blob/csv file
 
     // making a selfclicking invisible a-tag to download the file and set the defualt name of the file
     var a = document.createElement("a");
