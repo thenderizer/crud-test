@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container py-2">
+        <h1>CRUD Database</h1>
+    </div>
+    <div class="container">
+
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Location</th>
+                    <th>Hobby</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container py-2">
+        <button onclick="toCSV()" class="btn btn-primary">Download CSV</button>
+        <button onclick="formApear()" class="btn btn-success">Add Item</button>
+    </div>
+    <div id="id01" class="modal">
+
+        <form class="modal-cont animate" method="post">
+
+            <div class="cont">
+
+
+
+
+
+                <div class="form-group">
+                    <label>*First Name</label>
+                    <input type="text" class="inp-control" placeholder="Jane" required="required" id="first-name">
+                </div>
+
+                <div class="form-group">
+                    <label>*Last Name</label>
+                    <input type="text" class="inp-control" placeholder="Smith" required="required" id="last-name">
+                </div>
+                <div class="form-group">
+                    <label>*Email</label>
+                    <input type="email" class="inp-control" placeholder="yourEmail@example.com" required="required" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" class="inp-control" placeholder="Portland, Oregon" id="location">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="inp-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" id="phone">
+                </div>
+                <div class="form-group">
+                    <label>Hobby</label>
+                    <input type="email" class="inp-control" placeholder="Programming" id="hobby">
+                </div>
+                <div class="btn-section">
+
+                    <button onclick="addProduct()" class="my-3 btn btn-success" id="add-item-button">Add Item</button>
+
+                    <button onclick="rstInput()" class="my-3 btn btn-danger cancel-btn"> cancel </button>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+    <script src="./javascript/script.js"></script>
+</body>
+
+</html>
